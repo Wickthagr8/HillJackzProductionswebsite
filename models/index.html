@@ -48,7 +48,7 @@ footer{padding:28px 0;color:#929986;font-size:.85rem}.foot{display:flex;justify-
 (function(){
 var f=document.getElementById('modelForm'),st=document.getElementById('status'),btn=document.getElementById('submitBtn'),prog=document.getElementById('prog'),done=document.getElementById('done');
 var MAX=12*1024*1024,EDGE=2000,Q=0.85,HEIC_LIB='https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js';
-var LIVE=/^https:\/\/script\.google\.com\//.test(f.getAttribute('data-endpoint'));if(!LIVE){btn.disabled=true;btn.textContent='Applications open soon';btn.setAttribute('aria-disabled','true');}
+var LIVE=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(f.getAttribute('data-endpoint').trim());if(!LIVE){btn.disabled=true;btn.textContent='Applications open soon';btn.setAttribute('aria-disabled','true');}
 var slots={headshot:null,fulllength:null},LABEL={headshot:'Headshot',fulllength:'Full-length'};
 function setErr(id,msg){var el=document.getElementById(id),e=document.getElementById(id+'-err');if(e)e.textContent=msg||'';if(el)el.setAttribute('aria-invalid',msg?'true':'false');return !msg}
 function isHeic(file){return /image\/hei[cf]/i.test(file.type)||/\.hei[cf]$/i.test(file.name)}

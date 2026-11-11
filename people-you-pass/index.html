@@ -65,7 +65,7 @@ if(!validate()){var bad=f.querySelector('[aria-invalid=true]');if(bad)bad.focus(
 if(document.getElementById('website').value)return;
 if(!LIVE)return;
 btn.disabled=true;btn.textContent='Sending…';prog.value=20;prog.className='on';
-var d={formType:'people_you_pass'};['name','email','phone','city','story','social'].forEach(function(k){d[k]=document.getElementById(k).value.trim()});d.age18=true;d.consent=true;d.page=location.href;d.userAgent=navigator.userAgent;
+var d={formType:'people_you_pass'};['name','email','phone','city','story','social'].forEach(function(k){d[k]=document.getElementById(k).value.trim()});d.age18=true;d.consent=true;d.page=location.href;
 var tick=setInterval(function(){if(prog.value<90)prog.value+=5},400);
 fetch(f.getAttribute('data-endpoint'),{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),redirect:'follow'}).then(function(r){clearInterval(tick);return r.json()}).then(function(j){if(!j||!j.ok)throw new Error('fail');prog.value=100;f.hidden=true;done.classList.add('on');done.focus()}).catch(function(){clearInterval(tick);prog.className='';st.className='status bad';st.textContent='Something went wrong sending your sign-up. Please try again in a few minutes.'}).then(function(){btn.disabled=false;btn.textContent='Submit sign-up'})});
 })();

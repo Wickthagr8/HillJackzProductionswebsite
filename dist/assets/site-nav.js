@@ -4,7 +4,7 @@
   var nav = document.getElementById(btn.getAttribute('aria-controls') || 'site-nav');
   if (!nav) return;
   var wrap = btn.closest('.nav') || btn.parentElement;
-  var bp = parseInt(btn.getAttribute('data-breakpoint') || '760', 10);
+  var bp = parseInt(btn.getAttribute('data-breakpoint') || '900', 10);
   function isDesktop() {
     return window.matchMedia('(min-width:' + (bp + 1) + 'px)').matches;
   }

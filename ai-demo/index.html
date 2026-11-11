@@ -770,6 +770,96 @@
       .hero-trust { grid-template-columns: 1fr; gap: 10px; }
       .roi-card, .price-card, .cta-banner { padding: 22px; }
     }
+    /* Stack/wrap header and CTAs on small screens to prevent horizontal overflow */
+    @media (max-width: 700px) {
+      .nav {
+        height: auto;
+        min-height: 72px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 10px 0;
+        gap: 10px;
+      }
+      .brand {
+        min-width: 0;
+        max-width: 100%;
+        font-size: 0.95rem;
+      }
+      .brand-sub {
+        white-space: normal;
+      }
+      .nav-cta {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+      .btn {
+        white-space: normal;
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .hero-actions,
+      .cta-buttons,
+      .nav-cta {
+        flex-wrap: wrap;
+      }
+      .hero-actions,
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn,
+      .cta-buttons .btn,
+      .price-card .btn,
+      .nav-cta .btn {
+        width: 100%;
+      }
+      .pill-badge {
+        display: flex;
+        flex-wrap: wrap;
+        white-space: normal;
+        max-width: 100%;
+        box-sizing: border-box;
+        height: auto;
+      }
+      .hero-grid,
+      .hero-grid > div,
+      .hero h1,
+      .hero-sub,
+      .industry-tags,
+      .hero-actions,
+      .hero-trust,
+      .roi-card,
+      .roi-controls,
+      .slider-group,
+      .pricing-grid,
+      .price-card,
+      .cta-banner,
+      .cta-buttons,
+      .wrap {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .slider-label {
+        flex-wrap: wrap;
+        gap: 6px;
+        min-width: 0;
+      }
+      .slider-label label,
+      .slider-val {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      input[type="range"] {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   
     a:focus-visible,button:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 </style>
